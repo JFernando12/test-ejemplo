@@ -12,7 +12,7 @@ router.get("/api/articles", (req, res, next) => {
           return;
         }
         res.json({
-            "message":"Успешно",
+            "message":"Success",
             "data":rows
         })
       });
@@ -26,9 +26,10 @@ router.get("/api/article/:id", (req, res, next) => {
           res.status(403).json({"error":err.message});
           return;
         }
+        // Can be better: Before submitting work, please make sure that all lines of code containing debugger and console.log are deleted.
         console.log('row: ', row);
         res.json({
-            "message":"Успешно",
+            "message":"Success",
             "data":row
         });
       });
@@ -37,10 +38,10 @@ router.get("/api/article/:id", (req, res, next) => {
 router.post("/api/article/", (req, res, next) => {
     const errors=[];
     if (!req.body.title){
-        errors.push("title обязательно");
+        errors.push("title is required");
     }
     if (!req.body.body){
-        errors.push("body обязателен");
+        errors.push("body is required");
     }
     if (errors.length){
         res.status(400).json({"error":errors.join(",")});
@@ -59,7 +60,7 @@ router.post("/api/article/", (req, res, next) => {
             return;
         }
         res.json({
-            "message": "Успешно",
+            "message": "Success",
             "data": data,
             "id" : this.lastID
         });
@@ -85,7 +86,7 @@ router.put("/api/article/:id", (req, res, next) => {
                 return;
             }
             res.json({
-                message: "Успешно",
+                message: "Success",
                 data: data
             });
     });
@@ -100,11 +101,10 @@ router.delete("/api/article/:id", (req, res, next) => {
                 res.status(403).json({"error": res.message});
                 return;
             }
-            res.json({"message":"Удалено", rows: this.changes});
+            res.json({"message":"Deleted", rows: this.changes});
     });
 });
 
-// Если никуда не попали
 router.get("/", (req, res, next) => {
     res.json({"message":"Ok"});
 });
