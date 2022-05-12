@@ -1,15 +1,26 @@
-# REST API на Node.js 
+# Node.js 
+## Task description
 
-**Используемые технологии**
+The user should be able to:
 
-* Node.js
-* express.js
-* sqllite
+- get all articles
+- get a specific article by id
+- create an article
+- edit an article
+- delete an article
 
-**Доступные маршруты**
+A project with an API must be formatted as a git repository with an understandable README file.
 
-`GET /api/articles` — получить все статьи
-`GET /api/article/:id` — получить конкретную статью по id
-`POST /api/article` — создать статью
-`PUT /api/article/:id` — редактировать статью
-`DELETE /api/article/:id` — удалить статью по id
+Technologies used:
+
+- Node.js
+- express.js
+- sqllite
+
+Available routes
+
+GET /api/articles — get all articles
+GET /api/article/:id — get a specific article by id
+POST /api/article — create an article
+PUT /api/article/:id — edit an article
+DELETE /api/article/:id — delete an article by id
